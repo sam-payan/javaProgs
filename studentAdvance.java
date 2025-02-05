@@ -55,7 +55,7 @@ class student{
 		firstName = fName;
 	}
 
-	public void setlastName(String lName){
+	public void setLastName(String lName){
 		lastName = lName;
 	}
 
@@ -93,15 +93,15 @@ class student{
 	}
 
 	public void printInfo(){
-		System.out.println("Name: "+firstName+" "+lastName);
-		System.out.println("Age: "+age);
-		System.out.println("Department: "+department);
-		System.out.println("Marks of sub1 is: "+ sub1);
-		System.out.println("Marks of sub2 is: "+ sub2);
-		System.out.println("Marks of sub3 is: "+ sub3);
-		System.out.println("Averege of marks: "+ calculateAvg());
-		System.out.println("Grade of marks: "+ getGrade());
-		System.out.println("Students count is: "+ studentCount);
+		System.out.print(firstName+" "+lastName+"\t  ");
+		System.out.print(age+"\t   ");
+		System.out.print(department+"\t          ");
+		System.out.print( sub1+"\t ");
+		System.out.print( sub2+"\t ");
+		System.out.print( sub3+"\t  ");
+		System.out.print( calculateAvg()+"\t          ");
+		System.out.print( getGrade()+"\t   ");
+		System.out.print(studentCount+"\t");
 	}
 
 	public float calculateAvg(){
@@ -110,36 +110,61 @@ class student{
 	}
 	
 	public String getGrade(){
-		if (calculateAvg() <=100 && calculateAvg() >=90){
+		if (calculateAvg() >=90){
 			return "A";
 		}
-	       	else if (calculateAvg() <=90 && calculateAvg() >=80){
+	    else if (calculateAvg() >=80){
 			return "B";
 		}
-		else if (calculateAvg() <=80 && calculateAvg() >=70){
+		else if (calculateAvg() >=70){
 			return "C";
 		}
-		else if (calculateAvg() <=70 && calculateAvg() >=60){
+		else if (calculateAvg() >=60){
 			return "D";
 		}
-		else if (calculateAvg() <=60 && calculateAvg() >=50){
+		else if (calculateAvg() >=50){
 			return "E";
 		}
 		else{
 			return "FAIL";
 		}	
 	}
-
 }
 
 class testStudent{
 	public static void main(String[] args){
+		
 		student std1 = new student();
-		//std1.printInfo();
-		System.out.println(std1);
+		System.out.print("    Name\t  Age\t Department\t  Sub1\t Sub2\t Sub3\t Average\tGarde\t Count\n");
+		System.out.println("------------------------------------------------------------------------------------------------");
+		std1.printInfo();
+		
+		//System.out.println(std1);
 		System.out.println();
 	
 		student std2 = new student("Dinesh","Devariya","DOCS",19, 49, 48, 47);
-		System.out.println(std2);
+		std2.printInfo();
+		
+		student std3 = new student();
+		
+		student[] stds = new student[3];
+		stds[0] = std1;
+		stds[1] = std2;
+		stds[2] = std3;
+			stds[2].setFirstName("saaD");
+			stds[2].setLastName("khatri");
+			stds[2].setAge(20);
+			stds[2].setDepartment("DOCS");
+			stds[2].setSub1(63);
+			stds[2].setSub2(67);
+			stds[2].setSub3(53);
+		System.out.println("");
+		std3.printInfo();
+		
+		System.out.println("");
+		for(int i = 0; i <= stds.length; i++){
+			stds[i].printInfo();
+			System.out.println();
+		}
 	}
 }
