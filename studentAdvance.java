@@ -11,9 +11,9 @@ class student{
 		lastName = "payan";
 		department = "DOCS";
 		age = 18;
-		sub1 = 55;
-		sub2 = 56;
-		sub3 = 57;
+		sub1 = 70;
+		sub2 = 60;
+		sub3 = 50;
 		studentCount++;
 	}
 
@@ -133,38 +133,52 @@ class student{
 
 class testStudent{
 	public static void main(String[] args){
-		
+
+		student[] stds = new student[3];		
+
 		student std1 = new student();
-		System.out.print("    Name\t  Age\t Department\t  Sub1\t Sub2\t Sub3\t Average\tGarde\t Count\n");
+		stds[0] = std1;
+		System.out.print("    Name\t  Age\t Department\t  Sub1\t Sub2\t Sub3\t Average\tGrade\t Count\n");
 		System.out.println("------------------------------------------------------------------------------------------------");
-		std1.printInfo();
-		
-		//System.out.println(std1);
+		stds[0].printInfo();
 		System.out.println();
 	
-		student std2 = new student("Dinesh","Devariya","DOCS",19, 49, 48, 47);
-		std2.printInfo();
-		
-		student std3 = new student();
-		
-		student[] stds = new student[3];
-		stds[0] = std1;
+		student std2 = new student("Dinesh","Devariya","DOCS",19, 80, 70, 60);
 		stds[1] = std2;
+		stds[1].printInfo();
+		System.out.println();
+
+		student std3 = new student();
 		stds[2] = std3;
 			stds[2].setFirstName("saaD");
 			stds[2].setLastName("khatri");
 			stds[2].setAge(20);
 			stds[2].setDepartment("DOCS");
-			stds[2].setSub1(63);
-			stds[2].setSub2(67);
-			stds[2].setSub3(53);
-		System.out.println("");
-		std3.printInfo();
-		
-		System.out.println("");
-		for(int i = 0; i <= stds.length; i++){
-			stds[i].printInfo();
-			System.out.println();
+			stds[2].setSub1(90);
+			stds[2].setSub2(80);
+			stds[2].setSub3(70);
+		stds[2].printInfo();
+
+
+		student[] avg = new student[stds.length];
+
+		float avgOfSub1 = 0,avgOfSub2 = 0,avgOfSub3 = 0;
+
+		for(int i = 0; i < stds.length; i++){
+			avgOfSub1 += stds[i].getSub1()/stds.length;	
+			avgOfSub2 += stds[i].getSub2()/stds.length;
+			avgOfSub3 += stds[i].getSub3()/stds.length;
 		}
+
+		float avgOfAvg = (avgOfSub1 + avgOfSub2 + avgOfSub3) / stds.length;
+		System.out.println();
+		System.out.print("\t\tAverage\t\t\t");
+		System.out.print("  "+avgOfSub1+"\t ");
+		System.out.print(avgOfSub2+"\t ");
+		System.out.print(avgOfSub3+"\t  ");
+		System.out.print(avgOfAvg+"\t");
+
+		System.out.println("");
+		
 	}
 }
